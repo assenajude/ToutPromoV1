@@ -1,0 +1,298 @@
+<p-panel [toggleable]="true" [style]="{'min-width':'100%'}" >
+  <p-header>
+    <span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:2px">Espace Selection </span>
+
+    <span [style]="{'float':'right'}">
+      <i class="pi pi-bell"></i>
+      <i class="pi pi-refresh"></i>
+    </span>
+  </p-header>
+  <ul nz-menu [nzMode]="'horizontal'" style="margin-bottom: 30px">
+    <li nz-menu-item [nzSelected]="true"><i nz-icon type="file"></i> Accueil</li>
+    <li nz-menu-item (click)="openSelectModal()"><i nz-icon type="file"></i> Nauveau</li>
+    <li nz-menu-item><i nz-icon type="mail"></i> Consulter tous les articles</li>
+    <li nz-submenu>
+      <span title><i nz-icon type="setting"></i>Tendances</span>
+      <ul>
+        <li nz-menu-group>
+          <span title>Item 1</span>
+          <ul>
+            <li nz-menu-item>Option 1</li>
+            <li nz-menu-item>Option 2</li>
+          </ul>
+        </li>
+        <li nz-menu-group>
+          <span title>Item 2</span>
+          <ul>
+            <li nz-menu-item>Option 3</li>
+            <li nz-menu-item>Option 4</li>
+            <li nz-submenu>
+              <span title>Sub Menu</span>
+              <ul>
+                <li nz-menu-item nzDisabled>Option 5</li>
+                <li nz-menu-item>Option 6</li>
+              </ul>
+            </li>
+            <li nz-submenu nzDisabled>
+              <span title>Disabled Sub Menu</span>
+              <ul>
+                <li nz-menu-item>Option 5</li>
+                <li nz-menu-item>Option 6</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+
+
+
+    <div class="row" style=" margin-top: 30px;">
+
+      <div class="col-1" style="text-align:left">
+        <a href="#" tooltip="page précédente" placement="bottom">
+  <span style="font-size: 2em; color: deeppink">
+<i class="pi pi-chevron-left" style="font-size: 2em"></i>
+</span>
+        </a>
+      </div>
+
+
+  <div  *ngFor="let select of selecProds?.content">
+    <ng-template #spinTemplate > <i nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'" style="font-size: 60px; margin-top:50px"></i></ng-template>
+
+    <nz-spin nzTip="Vote terminé!!!" [nzSpinning]="select.goSpin" [nzIndicator]="spinTemplate">
+
+    <nz-card style="width:230px;" [nzCover]="coverTemplate" [nzActions]="[actionSell, actionLike, actionEdit]" [nzHoverable]="true" id="{{select.idProd}}">
+      <span>{{ getTimeRemaining(select) }}</span>
+      <nz-card-meta nzTitle="{{select.prixProd}}"
+                    nzDescription="{{select.designProd}}"
+                    [nzAvatar]="avatarTemplate">
+      </nz-card-meta>
+      <br>
+      <p-panel header="-5000" [toggleable]="true" [collapsed]="select.panelCollapsed">
+        <span nz-row>
+        <button nz-button (click)="decline(select)" [disabled]="select.currentVotant==0"><i nz-icon type="dislike"></i></button>
+        <nz-progress [nzPercent]="select.percent" nzType="circle" [nzWidth]="50"></nz-progress>
+        <button nz-button (click)="increase(select)" [disabled]="select.percent==100"><i nz-icon type="like"></i></button>
+        </span>
+        <span nz-row>Votants:{{select.currentVotant}}&nbsp;/&nbsp;{{select.totalVotant}}</span>
+      </p-panel>
+    </nz-card>
+    <ng-template #avatarTemplate>
+      <nz-avatar nzSrc="{{select.infosMarque}}"></nz-avatar>
+    </ng-template>
+    <ng-template #coverTemplate>
+      <div class="box19">
+        <img src="{{select.lienImage}}" alt="">
+        <div class="box-content">
+          <ul class="icon">
+            <li><a href="#"><i nz-icon nzType="facebook" nzTheme="outline"></i></a></li>
+            <li><a href="#"><i nz-icon nzType="twitter" nzTheme="outline"></i></a></li>
+            <li><a href="#"><i nz-icon nzType="instagram" nzTheme="outline"></i></a></li>
+            <li><a href="#"><i nz-icon nzType="google-plus" nzTheme="outline"></i></a></li>
+          </ul>
+          <h3 class="title">
+            <button class="btn btn-outline-primary">Détail</button>
+            <button class="btn btn-outline-primary">Acheter</button>
+          </h3>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template #actionSell>
+      <button nz-button (click)="addToCart(select)"> <i nz-icon type="shopping-cart" style="color:#eb2f96; font-size: 20px"></i></button>
+    </ng-template>
+    <ng-template #actionLike>
+      <button nz-button><i nz-icon type="heart" style="color: #eb2f96;font-size: 20px"></i></button>
+    </ng-template>
+    <ng-template #actionEdit>
+      <button nz-button><i nz-icon type="info-circle" style="color:#eb2f96; font-size: 20px"></i></button>
+    </ng-template>
+    </nz-spin>
+  </div>
+
+
+      <div class="col-1" style="text-align:center;">
+        <a href="#" tooltip="page suivante" placement="bottom">
+  <span style="font-size: 2em; color:deeppink">
+<i class="pi pi-chevron-right" style="font-size: 2em"></i>
+</span></a>
+      </div>
+
+    </div>
+
+  <p-footer>
+    <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator>
+  </p-footer>
+</p-panel>
+
+
+
+<!--les modals-->
+
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Nouveau Produit en selection" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" nzMaskClosable="false">
+
+  <div class="container" *ngIf="mode==0">
+
+    <form class="form-inline" [formGroup]="fileForm" (ngSubmit)="onFileFormSubmit()">
+
+      <div  class="form-group">
+        <label for="image" class="col-form-label">Image:</label>
+        <input type="file" class="form-control" id="image" name="file" (change)="onFileChange($event)">
+        <input type="hidden" name="fileHidden" formControlName="image">
+      </div>
+      <button type="submit" class="btn btn-outline-primary">Save</button>
+    </form>
+
+  </div>
+
+
+  <div class="container" *ngIf="mode==1">
+
+
+    <form class="form-inline" [formGroup]="produitForm" (ngSubmit)="onProduitFormSubmit()">
+
+      <div class="form-group row">
+        <label for="id" class="col-sm-2 col-form-label">Produit ID:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="id" formControlName="idProd">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="design" class="col-sm-2 col-form-label">Designation:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="design" formControlName="designProd">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="descrip" class="col-sm-2 col-form-label">Description:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="descrip" formControlName="descripProd">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="currentPrice" class="col-sm-2 col-form-label"> prix actuel</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="currentPrice" formControlName="prixProd">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="miniPrice" class="col-sm-2 col-form-label"> prix mini</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="miniPrice" formControlName="prixminProd">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="maxiPrice" class="col-sm-2 col-form-label"> prix maxi</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="maxiPrice" formControlName="prixmaxProd">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="qteStock" class="col-sm-2 col-form-label"> Quantité en Stock:</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="qteStock" formControlName="qteStockProd">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="marque" class="col-sm-2 col-form-label">Marque:</label>
+        <div class="col-sm-10">
+          <input type="text"  class="form-control" id="marque" formControlName="infosMarque"  >
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="votant" class="col-sm-2 col-form-label"> Total Votants:</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="votant" formControlName="totalVotant">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-md-3">
+            Temps d'expiration:
+          </div>
+          <div class="form-col">
+            <select class="form-control-sm d-inline-block" id="day" formControlName="days">
+              <option *ngFor="let day of days" [ngValue]="day">{{day}}</option>
+            </select>
+          </div>
+          <div class="col-md-2"><label class="d-inline-block" for="day">Days</label></div>
+          <div class="form-col">
+            <select class="form-control-sm d-inline-block" id="hour" formControlName="hours">
+              <option *ngFor="let hour of hours" [ngValue]="hour">{{hour}}</option>
+            </select>
+          </div>
+          <div class="col-md-2"><label class="d-inline-block" for="hour">Hours</label></div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="nom" class="col-sm-2 col-form-label">Nom Image:</label>
+        <div class="col-sm-10">
+          <input type="text"  class="form-control" id="nom" formControlName="nomImage"  >
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="lien" class="col-sm-2 col-form-label">Lien Image:</label>
+        <div class="col-sm-10">
+          <input type="text"  class="form-control" id="lien" formControlName="lienImage"  >
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Espace:</label>
+        <div class="col-sm-10">
+          <select class="cusom-select" (change)="changeEspace($event)" formControlName="espace">
+            <option selected> Choisir l'espace</option>
+            <option *ngFor="let esp of espaces" [ngValue]="esp">{{esp.espaceName}}
+
+            </option>
+
+          </select>
+        </div>
+      </div>
+
+
+      <button type="submit" class="btn btn-outline-primary">Valider</button>
+    </form>
+  </div>
+
+</nz-modal>
+
+
+
+<nz-modal
+  [(nzVisible)]="visible"
+  [nzTitle]="modalTitle"
+  [nzContent]="modalContent"
+  [nzFooter]="modalFooter"
+  (nzOnCancel)="poursuivreAchat()"
+>
+  <ng-template #modalTitle>
+    <span><i nz-icon nzType="info-circle" nzTheme="outline" style="color:blue;width: 20px"></i>Produit ajouté avec succès au panier!</span>
+  </ng-template>
+
+  <ng-template #modalContent>
+ <span><img src="{{imageAjoute}}" style="width:60px;height: 70px"></span>  <span>{{descripAjoute}}</span>
+  </ng-template>
+
+  <ng-template #modalFooter>
+    <button nz-button nzType="primary" (click)="poursuivreAchat()">Poursuivre mes achats</button>
+    <button nz-button nzType="primary" (click)="allerPanier()">Valider maintenant</button>
+  </ng-template>
+</nz-modal>

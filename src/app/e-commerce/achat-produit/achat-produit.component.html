@@ -1,0 +1,244 @@
+<p-panel [toggleable]="true" [style]="{'width':'108%'}" >
+  <p-header>
+    <span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:2px">Espace Achat </span>
+
+    <span><i class="pi pi-bell" [style]="{'float':'right'}"></i>   </span>
+     <span><i class="pi pi-refresh" [style]="{'float':'right'}"></i></span>
+
+  </p-header>
+
+
+
+  <ul nz-menu [nzMode]="'horizontal'" style="margin-bottom: 30px">
+    <li nz-menu-item><i nz-icon type="file"></i> Accueil</li>
+    <li nz-menu-item><i nz-icon type="file"></i> Nauveau</li>
+    <li nz-menu-item><i nz-icon type="mail"></i> Consulter tous les articles</li>
+    <li nz-submenu>
+      <span title><i nz-icon type="setting"></i>Tendances</span>
+      <ul>
+        <li nz-menu-group>
+          <span title>Item 1</span>
+          <ul>
+            <li nz-menu-item>Option 1</li>
+            <li nz-menu-item>Option 2</li>
+          </ul>
+        </li>
+        <li nz-menu-group>
+          <span title>Item 2</span>
+          <ul>
+            <li nz-menu-item>Option 3</li>
+            <li nz-menu-item>Option 4</li>
+            <li nz-submenu>
+              <span title>Sub Menu</span>
+              <ul>
+                <li nz-menu-item nzDisabled>Option 5</li>
+                <li nz-menu-item>Option 6</li>
+              </ul>
+            </li>
+            <li nz-submenu nzDisabled>
+              <span title>Disabled Sub Menu</span>
+              <ul>
+                <li nz-menu-item>Option 5</li>
+                <li nz-menu-item>Option 6</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+
+
+
+
+  <div class="row" style=" margin-top: 15px">
+
+
+    <div class="col-1" style="text-align:left">
+      <a href="#" tooltip="page précédente" placement="bottom">
+  <span style="font-size: 2em; color: deeppink">
+<i class="pi pi-chevron-left" style="font-size: 2em"></i>
+</span>
+      </a>
+    </div>
+
+    <div class="col">
+      <nz-card style="width:230px;" [nzCover]="coverTemplate" [nzActions]="[actionSell, actionLike, actionEdit]" [nzHoverable]="true">
+        <nz-card-meta
+          nzTitle="15 000 FCFA"
+          nzDescription="Chaussure"
+          [nzAvatar]="avatarTemplate"
+        ></nz-card-meta>
+      </nz-card>
+      <ng-template #avatarTemplate>
+        <nz-avatar nzSrc="http://localhost:8082/api/files/downloadFile/poloLogo.jpg"></nz-avatar>
+      </ng-template>
+      <ng-template #coverTemplate>
+        <div class="box19">
+          <img src="../assets/images/pompon1.jpg" alt="">
+          <div class="box-content">
+            <ul class="icon">
+              <li><a href="#"><i nz-icon nzType="facebook" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="twitter" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="instagram" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="google-plus" nzTheme="outline"></i></a></li>
+            </ul>
+            <h3 class="title">
+              <button class="btn btn-outline-primary">Détail</button>
+              <button class="btn btn-outline-primary">Acheter</button>
+            </h3>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #actionSell>
+        <button nz-button> <i nz-icon type="shopping-cart" style="color:#eb2f96"></i></button>
+      </ng-template>
+      <ng-template #actionLike>
+        <button nz-button><i nz-icon type="heart" style="color: #eb2f96"></i></button>
+      </ng-template>
+      <ng-template #actionEdit>
+        <button nz-button><i nz-icon type="info-circle" style="color:#eb2f96"></i></button>
+      </ng-template>
+    </div>
+
+
+    <div class="col">
+      <nz-card style="width:230px;" [nzCover]="coverTemplate" [nzActions]="[actionSell, actionLike, actionEdit]" [nzHoverable]="true">
+        <nz-card-meta
+          nzTitle="10 000 FCFA"
+          nzDescription="Chemise"
+          [nzAvatar]="avatarTemplate"
+        ></nz-card-meta>
+
+      </nz-card>
+      <ng-template #avatar2>
+        <nz-avatar nzSrc="http://localhost:8082/api/files/downloadFile/LuisVuitonLogo.jpg"></nz-avatar>
+      </ng-template>
+      <ng-template #cover2>
+        <div class="box19">
+          <img src="../assets/images/sacdosenfant1.jpg" alt="">
+          <div class="box-content">
+            <ul class="icon">
+              <li><a href="#"><i nz-icon nzType="facebook" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="twitter" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="instagram" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="google-plus" nzTheme="outline"></i></a></li>
+            </ul>
+            <h3 class="title">
+              <button class="btn btn-outline-primary">Détail</button>
+              <button class="btn btn-outline-primary">Acheter</button>
+            </h3>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #actionSell>
+        <button nz-button> <i nz-icon type="shopping-cart" style="color:#eb2f96"></i></button>
+      </ng-template>
+      <ng-template #actionLike>
+        <button nz-button><i nz-icon type="heart" style="color: #eb2f96"></i></button>
+      </ng-template>
+      <ng-template #actionEdit>
+        <button nz-button><i nz-icon type="info-circle" style="color:#eb2f96"></i></button>
+      </ng-template>
+    </div>
+    <div class="col">
+      <nz-card style="width:230px;" [nzCover]="coverTemplate" [nzActions]="[actionSell, actionLike, actionEdit]">
+        <nz-card-meta
+          nzTitle="10 000 FCFA"
+          nzDescription="Chemise"
+          [nzAvatar]="avatarTemplate"
+        ></nz-card-meta>
+      </nz-card>
+      <ng-template #avatar2>
+        <nz-avatar nzSrc="http://localhost:8082/api/files/downloadFile/clarksLogo.jpg"></nz-avatar>
+      </ng-template>
+      <ng-template #cover2>
+        <div class="box19">
+          <img src="../assets/images/basket1.jpg" alt="">
+          <div class="box-content">
+            <ul class="icon">
+              <li><a href="#"><i nz-icon nzType="facebook" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="twitter" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="instagram" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="google-plus" nzTheme="outline"></i></a></li>
+            </ul>
+            <h3 class="title">
+              <button class="btn btn-outline-primary">Détail</button>
+              <button class="btn btn-outline-primary">Acheter</button>
+            </h3>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #actionSell>
+        <button nz-button> <i nz-icon type="shopping-cart" style="color:#eb2f96"></i></button>
+      </ng-template>
+      <ng-template #actionLike>
+        <button nz-button><i nz-icon type="heart" style="color: #eb2f96"></i></button>
+      </ng-template>
+      <ng-template #actionEdit>
+        <button nz-button><i nz-icon type="info-circle" style="color:#eb2f96"></i></button>
+      </ng-template>
+    </div>
+
+    <div class="col">
+      <nz-card style="width:230px;" [nzCover]="coverTemplate" [nzActions]="[actionSell, actionLike, actionEdit]" [nzHoverable]="true">
+        <nz-card-meta
+          nzTitle="10 000 FCFA"
+          nzDescription="Chemise"
+          [nzAvatar]="avatarTemplate"
+        ></nz-card-meta>
+
+      </nz-card>
+      <ng-template #avatarTemplate>
+        <nz-avatar nzSrc="http://localhost:8082/api/files/downloadFile/adidasLogo.jpg"></nz-avatar>
+      </ng-template>
+      <ng-template #coverTemplate>
+        <div class="box19">
+          <img src="../assets/images/chem1.jpg" alt="">
+          <div class="box-content">
+            <ul class="icon">
+              <li><a href="#"><i nz-icon nzType="facebook" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="twitter" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="instagram" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="google-plus" nzTheme="outline"></i></a></li>
+            </ul>
+            <h3 class="title">
+              <button class="btn btn-outline-primary">Détail</button>
+              <button class="btn btn-outline-primary">Acheter</button>
+            </h3>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #actionSell>
+        <button nz-button> <i nz-icon type="shopping-cart" style="color:#eb2f96"></i></button>
+      </ng-template>
+      <ng-template #actionLike>
+        <button nz-button><i nz-icon type="heart" style="color: #eb2f96"></i></button>
+      </ng-template>
+      <ng-template #actionEdit>
+        <button nz-button><i nz-icon type="info-circle" style="color:#eb2f96"></i></button>
+      </ng-template>
+    </div>
+
+
+    <div class="col-1" style="text-align:center;">
+      <a href="#" tooltip="page suivante" placement="bottom">
+  <span style="font-size:2em;color:deeppink">
+<i class="pi pi-chevron-right" style="font-size: 2em"></i>
+</span>
+      </a>
+    </div>
+
+  </div>
+
+
+
+  <p-footer [style]="{'textAlign':'center'}">
+    <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator>
+  </p-footer>
+</p-panel>

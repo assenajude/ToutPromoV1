@@ -1,0 +1,268 @@
+<p-panel [toggleable]="true" [style]="{'width':'108%'}" >
+  <p-header>
+
+    <span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:2px">Espace Achat </span>
+
+    <span [style]="{'float':'right'}">
+      <i class="pi pi-bell"></i>
+      <i class="pi pi-refresh"></i>
+    </span>
+  </p-header>
+
+
+
+  <ul nz-menu [nzMode]="'horizontal'" style="margin-bottom: 30px">
+    <li nz-menu-item><i nz-icon type="file"></i> Nauveau</li>
+    <li nz-menu-item><i nz-icon type="mail"></i> Consulter tous les articles</li>
+    <li nz-submenu>
+      <span title><i nz-icon type="setting"></i> Navigation Three - Submenu</span>
+      <ul>
+        <li nz-menu-group>
+          <span title>Item 1</span>
+          <ul>
+            <li nz-menu-item>Option 1</li>
+            <li nz-menu-item>Option 2</li>
+          </ul>
+        </li>
+        <li nz-menu-group>
+          <span title>Item 2</span>
+          <ul>
+            <li nz-menu-item>Option 3</li>
+            <li nz-menu-item>Option 4</li>
+            <li nz-submenu>
+              <span title>Sub Menu</span>
+              <ul>
+                <li nz-menu-item nzDisabled>Option 5</li>
+                <li nz-menu-item>Option 6</li>
+              </ul>
+            </li>
+            <li nz-submenu nzDisabled>
+              <span title>Disabled Sub Menu</span>
+              <ul>
+                <li nz-menu-item>Option 5</li>
+                <li nz-menu-item>Option 6</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+
+
+
+
+
+
+  <div class="row" style=" margin-top: 20px;">
+
+    <div class="col-1" style="text-align:left">
+      <a href="#" tooltip="page précédente" placement="bottom">
+  <span style="font-size: 2em; color: deeppink">
+<i class="pi pi-chevron-left" style="font-size: 2em"></i>
+</span>
+      </a>
+    </div>
+
+    <div class="col">
+      <nz-card style="width:230px;" [nzCover]="coverTemplate" [nzActions]="[actionSell, actionLike, actionEdit]" nzHoverable="true">
+        <nz-card-meta
+          nzTitle="10 000 FCFA"
+          nzDescription="Chemise"
+          [nzAvatar]="avatarTemplate"
+        ></nz-card-meta>
+        <br>
+        <p-panel header="-5000" [toggleable]="true" collapsed="false">
+          <button nz-button (click)="decline()"><i nz-icon type="like"></i></button>
+          <nz-progress [nzPercent]="percent" nzType="circle" [nzWidth]="40"></nz-progress>
+          <button nz-button (click)="increase()"><i nz-icon type="dislike"></i></button>
+        </p-panel>
+      </nz-card>
+      <ng-template #avatarTemplate>
+        <nz-avatar nzSrc="data:image/png;base64,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"></nz-avatar>
+      </ng-template>
+      <ng-template #coverTemplate>
+        <div class="box19">
+          <img src="../assets/images/polo1.jpg" alt="">
+          <div class="box-content">
+            <ul class="icon">
+              <li><a href="#"><i nz-icon nzType="facebook" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="twitter" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="instagram" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="google-plus" nzTheme="outline"></i></a></li>
+            </ul>
+            <h3 class="title">
+              <button class="btn btn-outline-primary">Détail</button>
+              <button class="btn btn-outline-primary">Acheter</button>
+            </h3>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #actionSell>
+        <button nz-button> <i nz-icon type="shopping-cart" style="color:#eb2f96"></i></button>
+      </ng-template>
+      <ng-template #actionLike>
+        <button nz-button><i nz-icon type="heart" style="color: #eb2f96"></i></button>
+      </ng-template>
+      <ng-template #actionEdit>
+        <button nz-button><i nz-icon type="info-circle" style="color:#eb2f96"></i></button>
+      </ng-template>
+    </div>
+
+
+    <div class="col">
+      <nz-card style="width:230px;" [nzCover]="coverTemplate" [nzActions]="[actionSell, actionLike, actionEdit]" nzHoverable="true">
+        <nz-card-meta
+          nzTitle="10 000 FCFA"
+          nzDescription="Chemise"
+          [nzAvatar]="avatarTemplate"
+        ></nz-card-meta>
+        <br>
+        <p-panel header="-5000" [toggleable]="true" collapsed="false">
+          <button nz-button (click)="decline()"><i nz-icon type="like"></i></button>
+          <nz-progress [nzPercent]="percent" nzType="circle" [nzWidth]="40"></nz-progress>
+          <button nz-button (click)="increase()"><i nz-icon type="dislike"></i></button>
+        </p-panel>
+      </nz-card>
+      <ng-template #avatarTemplate>
+        <nz-avatar nzSrc="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALUAAAB5CAMAAABIp5BUAAAAZlBMVEX///8AAACioqLs7Ozl5eXFxcVUVFSLi4snJyc2Nja8vLz29vb7+/t3d3eHh4dnZ2c+Pj6oqKhsbGxfX1/V1dWcnJxaWlpLS0vc3NwcHBxGRkbOzs59fX1xcXGurq4vLy+UlJQSEhJwqxayAAAFgElEQVR4nO2b15LkJhRAuaAIIiiCJJT+/ycN6qB2lcvTsy9Cts7spO6Xs9TlBtAgdHNzc3Nzc3NzExQ4OtvgTxDibIM/wUBxtsIfIKA9W+HXEF42Azvb4peM9YjQTM7W+B2YX0zYEUl8tsLvobI5W+HXEC6ul/GovuBCy/Vi2c5UvJnGsy1+SQOg24sttAtoUHVyuSxNbQ3p2RK/hFSpBIDcyvZC6y0pQjZPsjoDfZkdaWzsvjINrQZY4rN1vsSAQpRFVct7azk3Z/t8SVwnEo1l6Vaa5lCerfMlTdXZqQdVWQWgLhLZscsf/cbVkA5Lgq8SIDVArLVcdCmk1hexbuySa9UNqISt45qe7fMVUVZPNchJGarzbsovMckYgE0MrXJZrxCDaNtLdNhtCWod5NBBZ1bZLTCfbfQNRSrWFWULbDpKXTKB6hoN66hntHjf2X1mU3KVc8kJTU54Szbv3strLDayaPXLzL07bHAR65n44IA67fw3xc/2+Q7a+KLuFnsd3FpnF7Fu5mjwsVHl8QJ9tsZzfIGZhvHWx8Ymcyzcd8FbGEZ/2BB2OqlkvfkkYrWzTrtEuKWf6nRNgh5szJwkLq5tlo0ArbCT67P7Bhm9nm32r1i3uImf0+mwlCLaU2B+ttSPbBNkLkiy2nKgE97LTfAdCYEU/PrqSq96meal87uzDvxQuFRYZy6U3V7sbL/OUHEfImGnEEQxTno3ofv015SygqFygZ4FPowxoCIDrmCoXUGfUqll7uIl9FJTQbksLrKlUorbvLQ+n9izrX5i7EWt3WRgJ9tVJazCB0vws9iaDVjZXC6VqBVNV9+5qrOlfsTFhovmteNgLSVdyvsMgj9iiFzGG0ZcLQnwdIzERHkXegZxg7rr9ypXbNoJ1hSRZBspJMGPNDU87zc4SIyYrpAJP4PEr56jqKBOCtQwhLOgm1SPXV6N0rSVdq/jogu8CUEoez0uVOhElfsiQ/jHfcvy/GHsaCL2dQc40ec7uvr5A4e57PYbjir8e47udalBQcyDry4mCb6co+4VxCwr28V3elQHn63R+n7kUCg8+7hu5Yk6X0Lfg20htb/iIFn4KcRVmXdJWSdX2V1lDHz48phpoI/d12y7vwm/S/XkIPdxa032X80W/mb0xJtvTAtd7b/ZC2zGncgX9SZ7xHNzgbA+WEM/AvknSH2Rm/+bm/8SJHrwqiYsjh/p4/HyMX4ZOoYzi9FaKVUluX5MjPOQ4sGP6cWaKJXY13+GyG7mAfXaLPNXGCWAv11M/UFTtO1HICMcz2uZ3k3syIZzDEV2azKAa+8o9D48EvB9dgzHpJvvxyQUtlCKz8PaX/uXbrTNHta+GfmwLuFpDdV5on/jYc0kADVva/+nPYd1Id/WWSA94MPabAAuqt/Wsviwjpa3NQRyEuWsF2IGyGLED2vFPqwbOKwDOWhw1r21AjP0aZ1/Wo8f1oHMkc/d6LGHdXdYF4XpD+tAbkw/rOfDWhy7McYseVv3gRzBf1izw5oe1rRE4m0dyvT7Ye1C5Gk9oMN6mhF5W4dSHD+tiQYXAUztd3XPis58KOP9xmAGG0gDZVqfzl6FOtLaRFPm5q8idmFRzfM87BtwhpbEWyjSqGnLsjyetWax5fufYRYU+zcwLvHe6UUtF+G0fDc3P8KIq+b+n/skBPkPh//iXygK/z5hpCAokIZvZ8QpQ+2I5hgVFY4qNLkXmXCKa1NMxGCaItHgqDOBFMadxmLEGouo60IlLqZmt16ZSygp4kU0rzNa5yhqZEhPtzS8RWQUhMYxc8OjfKz1Go3uRcZZVKYzcu8akoZ0jmbMGBkWRw2NGXWJmvmyzSg1TRFHMUVjRIs4poSQkOL65ubm5ubm5ub/wl9NRUksNQX9gAAAAABJRU5ErkJggg=="></nz-avatar>
+      </ng-template>
+      <ng-template #coverTemplate>
+        <div class="box19">
+          <img src="../assets/images/talon1.jpg" alt="">
+          <div class="box-content">
+            <ul class="icon">
+              <li><a href="#"><i nz-icon nzType="facebook" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="twitter" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="instagram" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="google-plus" nzTheme="outline"></i></a></li>
+            </ul>
+            <h3 class="title">
+              <button class="btn btn-outline-primary">Détail</button>
+              <button class="btn btn-outline-primary">Acheter</button>
+            </h3>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #actionSell>
+        <button nz-button> <i nz-icon type="shopping-cart" style="color:#eb2f96"></i></button>
+      </ng-template>
+      <ng-template #actionLike>
+        <button nz-button><i nz-icon type="heart" style="color: #eb2f96"></i></button>
+      </ng-template>
+      <ng-template #actionEdit>
+        <button nz-button><i nz-icon type="info-circle" style="color:#eb2f96"></i></button>
+      </ng-template>
+    </div>
+
+
+    <div class="col">
+      <nz-card style="width:230px;" [nzCover]="coverTemplate" [nzActions]="[actionrobe1, actionrobe2, actionrobe3]" nzHoverable="true">
+        <nz-card-meta
+          nzTitle="10 000 FCFA"
+          nzDescription="Chemise"
+          [nzAvatar]="avatarTemplate"
+        ></nz-card-meta>
+        <br>
+        <p-panel header="-5000" [toggleable]="true" collapsed="false">
+          <button nz-button (click)="decline()"><i nz-icon type="like"></i></button>
+          <nz-progress [nzPercent]="percent" nzType="circle" [nzWidth]="40"></nz-progress>
+          <button nz-button (click)="increase()"><i nz-icon type="dislike"></i></button>
+        </p-panel>
+      </nz-card>
+      <ng-template #avatarTemplate>
+        <nz-avatar nzSrc="data:image/png;base64,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"></nz-avatar>
+      </ng-template>
+      <ng-template #coverTemplate>
+        <div class="box19">
+          <img src="../assets/images/robe.jpg" alt="">
+          <div class="box-content">
+            <ul class="icon">
+              <li><a href="#"><i nz-icon nzType="facebook" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="twitter" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="instagram" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="google-plus" nzTheme="outline"></i></a></li>
+            </ul>
+            <h3 class="title">
+              <button class="btn btn-outline-primary">Détail</button>
+              <button class="btn btn-outline-primary">Acheter</button>
+            </h3>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #actionrobe1>
+        <button nz-button> <i nz-icon type="shopping-cart" style="color:#eb2f96"></i></button>
+      </ng-template>
+      <ng-template #actionrobe2>
+        <button nz-button><i nz-icon type="heart" style="color: #eb2f96"></i></button>
+      </ng-template>
+      <ng-template #actionrobe3>
+        <button nz-button><i nz-icon type="info-circle" style="color:#eb2f96"></i></button>
+      </ng-template>
+    </div>
+
+    <div class="col">
+      <nz-card style="width:230px;" [nzCover]="coverTemplate" [nzActions]="[actionSell, actionLike, actionEdit]" nzHoverable="true">
+        <nz-card-meta
+          nzTitle="10 000 FCFA"
+          nzDescription="Chemise"
+          [nzAvatar]="avatarTemplate"
+        ></nz-card-meta>
+        <br>
+        <p-panel header="-5000" [toggleable]="true" collapsed="false">
+          <button nz-button (click)="decline()"><i nz-icon type="like"></i></button>
+          <nz-progress [nzPercent]="percent" nzType="circle" [nzWidth]="40"></nz-progress>
+          <button nz-button (click)="increase()"><i nz-icon type="dislike"></i></button>
+        </p-panel>
+      </nz-card>
+      <ng-template #avatarTemplate>
+        <nz-avatar nzSrc="data:image/png;base64,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"></nz-avatar>
+      </ng-template>
+      <ng-template #coverTemplate>
+        <div class="box19">
+          <img src="../assets/images/tods3.jpg" alt="">
+          <div class="box-content">
+            <ul class="icon">
+              <li><a href="#"><i nz-icon nzType="facebook" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="twitter" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="instagram" nzTheme="outline"></i></a></li>
+              <li><a href="#"><i nz-icon nzType="google-plus" nzTheme="outline"></i></a></li>
+            </ul>
+            <h3 class="title">
+              <button class="btn btn-outline-primary">Détail</button>
+              <button class="btn btn-outline-primary">Acheter</button>
+            </h3>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #actionSell>
+        <button nz-button> <i nz-icon type="shopping-cart" style="color:#eb2f96"></i></button>
+      </ng-template>
+      <ng-template #actionLike>
+        <button nz-button><i nz-icon type="heart" style="color: #eb2f96"></i></button>
+      </ng-template>
+      <ng-template #actionEdit>
+        <button nz-button><i nz-icon type="info-circle" style="color:#eb2f96"></i></button>
+      </ng-template>
+    </div>
+
+    <div class="col-1" style="text-align:center;">
+      <a href="#" tooltip="page suivante" placement="bottom">
+  <span style="font-size: 2em; color:deeppink">
+<i class="pi pi-chevron-right" style="font-size: 2em"></i>
+</span>
+      </a>
+    </div>
+
+</div>
+
+
+    <p-footer [style]="{'textAlign':'center'}">
+      <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator>
+    </p-footer>
+</p-panel>

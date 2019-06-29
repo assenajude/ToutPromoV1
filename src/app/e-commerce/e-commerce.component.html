@@ -1,0 +1,123 @@
+<nav class="nav navbar-expand navbar-light bg-dark" style="max-height: 30px;padding-top: 0em;margin-top: 0px; text-align: initial">
+  <div class=" nav navbar pull-left"><a href="#" style="padding-bottom: 3em; padding-top: 0em;margin-top: 0px;margin-bottom: 20px; font-size: 13px" tooltip="Envoyer un mail" placement="bottom"><i class="far fa-envelope"></i>&nbsp;toutpromo1@gmail.com</a></div>
+  <span class="spacer"></span>
+  <div  class=" nav navbar">
+    <ul class="nav" style="padding-bottom: 3em; margin-top: 0px; margin-bottom: 20px; font-size: 13px; float: right">
+      <li  tooltip="Appelez ToutPromo" placement="bottom"><a style="color:cornflowerblue; margin-right: 10px; cursor: pointer;"><i nz-icon nzType="phone" nzTheme="twotone"></i>&nbsp;+225 08525827</a></li>|
+      <li  tooltip="Devenir membre de ToutPromo" placement="bottom"><a href="#" style="margin-right: 10px; margin-left: 10px">Affiliation</a></li>|
+      <li  tooltip="Consulter les questions fréquemment posées" placement="bottom"><a href="#" style="margin-right: 10px; margin-left: 10px">FAQ</a></li>|
+      <li  tooltip="Partager sur facebook" placement="bottom"><a href="#" style="margin-right: 10px; margin-left: 10px"><i nz-icon nzType="facebook" nzTheme="outline" style="color: blue"></i></a></li>|
+      <li  tooltip="Partager sur messenger" placement="bottom"><a href="#" style="margin-right: 10px; margin-left: 10px"><i nz-icon nzType="message" nzTheme="outline" style="color: blue"></i></a></li>|
+      <li  tooltip="Partager sur twiter" placement="bottom"><a href="#" style="margin-right: 10px; margin-left: 10px"><i nz-icon nzType="twitter" nzTheme="outline" style="color: blue"></i></a></li>|
+      <li  tooltip="Partager sur instagram" placement="bottom"><a href="#" style="margin-left: 10px"><i nz-icon nzType="instagram" nzTheme="outline" style="color: blue"></i></a></li>
+    </ul>
+  </div>
+</nav>
+<nz-affix>
+  <div>
+    <nav class="navbar navbar-expand-lg" style="background-color: ivory; height: 60px; text-align:bottom">
+    <a class="navbar-brand" href="#"><img src="../assets/images/toutpromov1.jpg" style="padding-left: 3em"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02" style="padding-right: 3em" >
+      <span class="spacer1"></span>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 push-righ">
+        <li class="nav-item">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01" style="height: 35px;font-size: 15px;">Genre</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" style="max-width: 152px; height: 35px;font-size: 15px; cursor: pointer;text-align:center">
+              <option selected>Tous les genres...</option>
+              <option value="1">Homme</option>
+              <option value="2">Femme</option>
+              <option value="3">Enfant</option>
+            </select>
+          </div>
+        </li>
+        <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0" style="margin-right: 20px; margin-left: 20px">
+
+            <div class="input-group">
+              <input type="text" class="form-control" id="chercher" placeholder="Chercher ici..." style="max-height: 35px; width:400px">
+              <div class="input-group-prepend" style="max-height: 35px;">
+                <div class="input-group-text" style="cursor: pointer"><i class="pi pi-search"></i></div>
+              </div>
+
+            </div>
+
+          </form>
+        </li>
+
+        <li class="nav-item" style="margin-right: 24px;">
+          <a class="nav-link" href="#"  >
+            <nz-badge [nzCount]="0">
+              <i nz-icon [type]="'user'" style="font-size: 25px; color: #eb2f96;"></i>
+            </nz-badge>
+            Compte
+          </a>
+        </li>
+        <li class="nav-item" style="margin-right: 20px;">
+          <a class="nav-link" routerLink="/ecommerce/panier">
+            <nz-badge [nzCount]="nbItem">
+              <i nz-icon [type]="'shopping-cart'" style="font-size: 25px; color: #eb2f96;"></i>
+            </nz-badge>
+            Panier
+          </a>
+
+        </li>
+        <li class="nav-item" style="margin-right: 20px;">
+          <a class="nav-link" href="#">
+            <nz-badge [nzCount]="0">
+              <i nz-icon [type]="'heart'" style="font-size: 25px; color: #eb2f96;"></i>
+          </nz-badge>
+            Favoris
+          </a>
+        </li>
+        <li class="nav-item" style="margin-right: 20px;">
+          <a class="nav-link" href="#">
+
+            <i nz-icon [type]="'info-circle'" style="font-size: 25px; color: #eb2f96;"></i>
+
+            Aide?
+          </a>
+        </li>
+      </ul>
+    </div>
+    </nav>
+  </div>
+</nz-affix>
+
+<p-megaMenu [model]="items" [ngStyle]="{'color':'ivory'}"></p-megaMenu>
+
+
+<router-outlet></router-outlet>
+
+<div>
+<app-footer></app-footer>
+</div>
+
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Nouvel Espace" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" nzMaskClosable="false">
+  <form class="form-inline" [formGroup]="espaceForm" (ngSubmit)="onEspaceFormSubmit()">
+
+    <div class="form-group row">
+      <label for="name" class="col-sm-2 col-form-label">Espace Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="name" formControlName="espaceName">
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label for="descrip" class="col-sm-2 col-form-label">Espace Description</label>
+      <div class="col-sm-10">
+        <input type="text"  class="form-control" id="descrip" formControlName="espaceDescrip"  >
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary">Ajouter</button>
+  </form>
+</nz-modal>
