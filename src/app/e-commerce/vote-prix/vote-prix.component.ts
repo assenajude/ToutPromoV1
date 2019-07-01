@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import {DialogService} from "primeng/api";
+import {NewProduitComponent} from "../modals/new-produit/new-produit.component";
 
 @Component({
   selector: 'app-vote-prix',
   templateUrl: './vote-prix.component.html',
-  styleUrls: ['./vote-prix.component.scss']
+  styleUrls: ['./vote-prix.component.scss'],
+  providers: [DialogService]
 })
 export class VotePrixComponent implements OnInit {
   percent=100;
   dynamic: number;
   type: string;
 
-  constructor() { }
+  constructor(public dialogService:DialogService) { }
 
   ngOnInit() {
   }
@@ -27,6 +30,12 @@ export class VotePrixComponent implements OnInit {
       this.percent = 0;
     }
   }
-  
-  
+
+
+  showProduitModal() {
+    const ref = this.dialogService.open(NewProduitComponent, {
+      header: 'Nouveau produit',
+      contentStyle: {"overflow": "auto"}
+    });
+  }
 }

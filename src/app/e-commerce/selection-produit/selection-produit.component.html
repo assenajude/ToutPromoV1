@@ -1,15 +1,15 @@
-<p-panel [toggleable]="true" [style]="{'min-width':'100%'}" >
+<p-panel [toggleable]="true" [style]="{'min-width':'800px'}" >
   <p-header>
     <span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:2px">Espace Selection </span>
 
     <span [style]="{'float':'right'}">
-      <i class="pi pi-bell"></i>
-      <i class="pi pi-refresh"></i>
+     <span><i nz-icon nzType="bell" nzTheme="twotone" style="font-size: 24px"></i></span>
+      <span><i nz-icon nzType="redo" nzTheme="outline" style="font-size: 24px; color: darkblue"></i></span>
     </span>
   </p-header>
   <ul nz-menu [nzMode]="'horizontal'" style="margin-bottom: 30px">
     <li nz-menu-item [nzSelected]="true"><i nz-icon type="file"></i> Accueil</li>
-    <li nz-menu-item (click)="openSelectModal()"><i nz-icon type="file"></i> Nauveau</li>
+    <li nz-menu-item (click)="openProduitModal()"><i nz-icon type="file"></i> Nauveau</li>
     <li nz-menu-item><i nz-icon type="mail"></i> Consulter tous les articles</li>
     <li nz-submenu>
       <span title><i nz-icon type="setting"></i>Tendances</span>
@@ -65,8 +65,7 @@
 
     <nz-spin nzTip="Vote terminé!!!" [nzSpinning]="select.goSpin" [nzIndicator]="spinTemplate">
 
-    <nz-card style="width:230px;" [nzCover]="coverTemplate" [nzActions]="[actionSell, actionLike, actionEdit]" [nzHoverable]="true" id="{{select.idProd}}">
-      <span>{{ getTimeRemaining(select) }}</span>
+    <nz-card style="width:230px;" [nzCover]="coverTemplate" nzTitle="{{ getTimeRemaining(select) }}" [nzActions]="[actionSell, actionLike, actionEdit]" [nzHoverable]="true" id="{{select.idProd}}">
       <nz-card-meta nzTitle="{{select.prixProd}}"
                     nzDescription="{{select.designProd}}"
                     [nzAvatar]="avatarTemplate">

@@ -35,6 +35,7 @@ import {
   PaginatorModule, TabMenuModule
 } from "primeng/primeng";
 import { FooterComponent } from './e-commerce/footer/footer.component';
+import {DynamicDialogComponent, DynamicDialogModule} from "primeng/dynamicdialog";
 
 @NgModule({
   declarations: [
@@ -75,7 +76,11 @@ import { FooterComponent } from './e-commerce/footer/footer.component';
     GalleriaModule,
     NzAvatarModule,
     NzBadgeModule,
-    TabMenuModule
+    TabMenuModule,
+    DynamicDialogModule
+  ],
+  entryComponents: [
+    NewProduitComponent
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

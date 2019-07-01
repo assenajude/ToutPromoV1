@@ -4,15 +4,16 @@
     <span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:2px">Espace Achat </span>
 
     <span [style]="{'float':'right'}">
-      <i class="pi pi-bell"></i>
-      <i class="pi pi-refresh"></i>
+     <span><i nz-icon nzType="bell" nzTheme="twotone" style="font-size: 24px"></i></span>
+      <span><i nz-icon nzType="redo" nzTheme="outline" style="font-size: 24px; color: darkblue"></i></span>
     </span>
+
   </p-header>
 
 
 
   <ul nz-menu [nzMode]="'horizontal'" style="margin-bottom: 30px">
-    <li nz-menu-item><i nz-icon type="file"></i> Nauveau</li>
+    <li nz-menu-item (click)="showProduitModal()"><i nz-icon type="file"></i> Nauveau</li>
     <li nz-menu-item><i nz-icon type="mail"></i> Consulter tous les articles</li>
     <li nz-submenu>
       <span title><i nz-icon type="setting"></i> Navigation Three - Submenu</span>

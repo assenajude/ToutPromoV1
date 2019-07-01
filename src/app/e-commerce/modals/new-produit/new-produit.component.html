@@ -1,126 +1,137 @@
-<!--<nz-modal [(nzVisible)]="isVisible" nzTitle="Nouveau Produit en selection" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" nzMaskClosable="false">
 
-  <div class="container" *ngIf="mode==0">
+<div class="container" *ngIf="mode==0">
 
-    <form class="form-inline" [formGroup]="fileForm" (ngSubmit)="onFileFormSubmit()">
+  <form class="form-inline" [formGroup]="fileForm" (ngSubmit)="onFileFormSubmit()">
 
-      <div  class="form-group">
-        <label for="image" class="col-form-label">Image:</label>
-        <input type="file" class="form-control" id="image" name="file" (change)="onFileChange($event)">
-        <input type="hidden" name="fileHidden" formControlName="image">
+    <div  class="form-group">
+      <label for="image" class="col-form-label">Image:</label>
+      <input type="file" class="form-control" id="image" name="file" (change)="onFileChange($event)">
+      <input type="hidden" name="fileHidden" formControlName="image">
+    </div>
+    <button type="submit" class="btn btn-outline-primary">Save</button>
+  </form>
+
+</div>
+
+
+<div class="container" *ngIf="mode==1">
+
+
+  <form class="form-inline" [formGroup]="produitForm" (ngSubmit)="onProduitFormSubmit()">
+
+    <div class="form-group row">
+      <label for="id" class="col-sm-2 col-form-label">Produit ID:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="id" formControlName="idProd">
       </div>
-      <button type="submit" class="btn btn-outline-primary">Save</button>
-    </form>
+    </div>
 
-  </div>
+    <div class="form-group row">
+      <label for="design" class="col-sm-2 col-form-label">Designation:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="design" formControlName="designProd">
+      </div>
+    </div>
 
+    <div class="form-group row">
+      <label for="descrip" class="col-sm-2 col-form-label">Description:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="descrip" formControlName="descripProd">
+      </div>
+    </div>
 
-  <div class="container" *ngIf="mode==1">
+    <div class="form-group row">
+      <label for="currentPrice" class="col-sm-2 col-form-label"> prix actuel</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="currentPrice" formControlName="prixProd">
+      </div>
+    </div>
 
+    <div class="form-group row">
+      <label for="miniPrice" class="col-sm-2 col-form-label"> prix mini</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="miniPrice" formControlName="prixminProd">
+      </div>
+    </div>
 
-    <form class="form-inline" [formGroup]="produitForm" (ngSubmit)="onProduitFormSubmit()">
+    <div class="form-group row">
+      <label for="maxiPrice" class="col-sm-2 col-form-label"> prix maxi</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="maxiPrice" formControlName="prixmaxProd">
+      </div>
+    </div>
 
-      <div class="form-group row">
-        <label for="id" class="col-sm-2 col-form-label">Produit ID:</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="id" formControlName="idProd">
+    <div class="form-group row">
+      <label for="qteStock" class="col-sm-2 col-form-label"> Quantité en Stock:</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="qteStock" formControlName="qteStockProd">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="marque" class="col-sm-2 col-form-label">Marque:</label>
+      <div class="col-sm-10">
+        <input type="text"  class="form-control" id="marque" formControlName="infosMarque"  >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="votant" class="col-sm-2 col-form-label"> Total Votants:</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="votant" formControlName="totalVotant">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col-md-3">
+          Temps d'expiration:
         </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="design" class="col-sm-2 col-form-label">Designation:</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="design" formControlName="designProd">
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="descrip" class="col-sm-2 col-form-label">Description:</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="descrip" formControlName="descripProd">
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="currentPrice" class="col-sm-2 col-form-label"> prix actuel</label>
-        <div class="col-sm-10">
-          <input type="number" class="form-control" id="currentPrice" formControlName="prixProd">
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="miniPrice" class="col-sm-2 col-form-label"> prix mini</label>
-        <div class="col-sm-10">
-          <input type="number" class="form-control" id="miniPrice" formControlName="prixminProd">
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="maxiPrice" class="col-sm-2 col-form-label"> prix maxi</label>
-        <div class="col-sm-10">
-          <input type="number" class="form-control" id="maxiPrice" formControlName="prixmaxProd">
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="qteStock" class="col-sm-2 col-form-label"> Quantité en Stock:</label>
-        <div class="col-sm-10">
-          <input type="number" class="form-control" id="qteStock" formControlName="qteStockProd">
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="marque" class="col-sm-2 col-form-label">Marque:</label>
-        <div class="col-sm-10">
-          <input type="text"  class="form-control" id="marque" formControlName="infosMarque"  >
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="votant" class="col-sm-2 col-form-label"> Total Votants:</label>
-        <div class="col-sm-10">
-          <input type="number" class="form-control" id="votant" formControlName="totalVotant">
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="date" class="col-sm-2 col-form-label">Expire le:</label>
-        <div class="col-sm-10">
-          <input type="Date"  class="form-control" id="date" formControlName="expirationDate" >
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="nom" class="col-sm-2 col-form-label">Nom Image:</label>
-        <div class="col-sm-10">
-          <input type="text"  class="form-control" id="nom" formControlName="nomImage"  >
-        </div>
-      </div>
-
-
-      <div class="form-group row">
-        <label for="lien" class="col-sm-2 col-form-label">Lien Image:</label>
-        <div class="col-sm-10">
-          <input type="text"  class="form-control" id="lien" formControlName="lienImage"  >
-        </div>
-      </div>
-
-
-      <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Espace:</label>
-        <div class="col-sm-10">
-          <select class="cusom-select" (change)="changeEspace($event)" formControlName="espace">
-            <option selected> Choisir l'espace</option>
-            <option *ngFor="let esp of espaces" [ngValue]="esp">{{esp.espaceName}}
-
-            </option>
-
+        <div class="form-col">
+          <select class="form-control-sm d-inline-block" id="day" formControlName="days">
+            <option *ngFor="let day of days" [ngValue]="day">{{day}}</option>
           </select>
         </div>
+        <div class="col-md-2"><label class="d-inline-block" for="day">Days</label></div>
+        <div class="form-col">
+          <select class="form-control-sm d-inline-block" id="hour" formControlName="hours">
+            <option *ngFor="let hour of hours" [ngValue]="hour">{{hour}}</option>
+          </select>
+        </div>
+        <div class="col-md-2"><label class="d-inline-block" for="hour">Hours</label></div>
       </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="nom" class="col-sm-2 col-form-label">Nom Image:</label>
+      <div class="col-sm-10">
+        <input type="text"  class="form-control" id="nom" formControlName="nomImage"  >
+      </div>
+    </div>
 
 
-      <button type="submit" class="btn btn-outline-primary">Valider</button>
-    </form>
-  </div>
+    <div class="form-group row">
+      <label for="lien" class="col-sm-2 col-form-label">Lien Image:</label>
+      <div class="col-sm-10">
+        <input type="text"  class="form-control" id="lien" formControlName="lienImage"  >
+      </div>
+    </div>
 
-</nz-modal>-->
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Espace:</label>
+      <div class="col-sm-10">
+        <select class="cusom-select" (change)="changeEspace($event)" formControlName="espace">
+          <option selected> Choisir l'espace</option>
+          <option *ngFor="let esp of espaces" [ngValue]="esp">{{esp.espaceName}}
+
+          </option>
+
+        </select>
+      </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-outline-primary">Valider</button>
+  </form>
+</div>
+

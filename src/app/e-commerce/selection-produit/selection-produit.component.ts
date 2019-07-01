@@ -10,11 +10,13 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {NzModalRef, NzModalService} from "ng-zorro-antd";
 import {NewProduitComponent} from "../modals/new-produit/new-produit.component";
+import {DialogService} from "primeng/api";
 
 @Component({
   selector: 'app-selection-produit',
   templateUrl: './selection-produit.component.html',
-  styleUrls: ['./selection-produit.component.scss']
+  styleUrls: ['./selection-produit.component.scss'],
+  providers: [DialogService]
 })
 export class SelectionProduitComponent implements OnInit {
   isVisible= false;
@@ -46,7 +48,7 @@ export class SelectionProduitComponent implements OnInit {
                private shopcartService:ShoppingCartService,
                private route:ActivatedRoute,
                private router:Router,
-               private modalService:NzModalService) {
+               private modalService:NzModalService, public dialogService:DialogService) {
     this.sub=this.ecommerceService.getEspace(2).subscribe(data=>{
       this.espace2=data;
       console.log(this.espace2)
@@ -83,7 +85,6 @@ export class SelectionProduitComponent implements OnInit {
 get f(){return this.produitForm.controls;}
   openSelectModal() {
     this.isVisible=true;
-
   }
 
   handleCancel() {
@@ -175,7 +176,7 @@ get f(){return this.produitForm.controls;}
     if (produit.percent >100 || produit.currentVotant==produit.totalVotant) {
       produit.percent = 100;
       produit.currentVotant=produit.totalVotant;
-      produit.panelCollapsed=true;
+      produit.panelCollapsed=false;
       produit.goSpin=true;
 
       let votedProduit={
@@ -222,7 +223,7 @@ get f(){return this.produitForm.controls;}
     var hours = Math.floor( (difference_ms/(1000*60*60)) % 24 );
     var days = Math.floor( difference_ms/(1000*60*60*24) );
 
-    let timeRemaining=days+"J"+ hours +"H"+ minutes +"min";
+    let timeRemaining=days+"J"+"_"+ hours +"H"+"_"+ minutes +"min"+"_"+ seconds+"s";
 
    /* if(days > 0) {
       timeRemaining = days + " days left";
@@ -285,5 +286,12 @@ this.visible=false;
 this.visible=false;
 this.router.navigateByUrl("/ecommerce/panier");
 
+  }
+
+  openProduitModal() {
+    const ref = this.dialogService.open(NewProduitComponent, {
+      header: 'Nouveau produit',
+      contentStyle: {"overflow": "auto"}
+    });
   }
 }
