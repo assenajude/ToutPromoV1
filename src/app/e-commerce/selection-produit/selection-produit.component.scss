@@ -1,10 +1,4 @@
 
-nz-card nzTitle {
-  margin-top:0px;
-  margin-bottom: 0px;
-  font-family: "Arial Black";
-  color: red;
-}
 .achatCard{
   max-width:107%;
   height: auto;
@@ -98,6 +92,7 @@ mat-card{
   border-radius : 50%/10% ;
 }
 .card:hover{
+
   border: 1px solid;
   border-color:violet;
 }

@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {en_US, NgZorroAntdModule, NZ_I18N, NzAvatarModule, NzBadgeModule} from "ng-zorro-antd";
+import {en_US, NgZorroAntdModule, NZ_I18N, NzAvatarModule, NzBadgeModule, NzCarouselModule} from "ng-zorro-antd";
+import{NzDropDownModule} from "ng-zorro-antd/dropdown";
 import { ELocationComponent } from './e-location/e-location.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { DashboardComponent } from './e-commerce/dashboard/dashboard.component';
@@ -30,7 +31,7 @@ import {
   CarouselModule,
   ChartModule,
   EditorModule,
-  GalleriaModule,
+  GalleriaModule, LightboxModule,
   MegaMenuModule,
   PaginatorModule, TabMenuModule
 } from "primeng/primeng";
@@ -77,7 +78,9 @@ import {DynamicDialogComponent, DynamicDialogModule} from "primeng/dynamicdialog
     NzAvatarModule,
     NzBadgeModule,
     TabMenuModule,
-    DynamicDialogModule
+    DynamicDialogModule,
+    NzCarouselModule
+
   ],
   entryComponents: [
     NewProduitComponent

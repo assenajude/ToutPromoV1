@@ -175,8 +175,9 @@ get f(){return this.produitForm.controls;}
     produit.currentVotant++;
     if (produit.percent >100 || produit.currentVotant==produit.totalVotant) {
       produit.percent = 100;
+      produit.panelCollapsed=!produit.panelCollapsed
       produit.currentVotant=produit.totalVotant;
-      produit.panelCollapsed=false;
+
       produit.goSpin=true;
 
       let votedProduit={

@@ -1,10 +1,10 @@
-<p-panel [toggleable]="true" [style]="{'min-width':'800px'}" >
+<p-panel [toggleable]="true" [style]="{'min-width':'1300px'}" >
   <p-header>
     <span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:2px">Espace Selection </span>
 
-    <span [style]="{'float':'right'}">
-     <span><i nz-icon nzType="bell" nzTheme="twotone" style="font-size: 24px"></i></span>
-      <span><i nz-icon nzType="redo" nzTheme="outline" style="font-size: 24px; color: darkblue"></i></span>
+    <span [style]="{'margin-right':'100%'}">
+     <span><i nz-icon nzType="bell" nzTheme="outline" style="font-size: 24px"></i></span>
+      <span><i nz-icon nzType="redo" nzTheme="outline" style="font-size: 24px;"></i></span>
     </span>
   </p-header>
   <ul nz-menu [nzMode]="'horizontal'" style="margin-bottom: 30px">
@@ -65,7 +65,10 @@
 
     <nz-spin nzTip="Vote terminé!!!" [nzSpinning]="select.goSpin" [nzIndicator]="spinTemplate">
 
-    <nz-card style="width:230px;" [nzCover]="coverTemplate" nzTitle="{{ getTimeRemaining(select) }}" [nzActions]="[actionSell, actionLike, actionEdit]" [nzHoverable]="true" id="{{select.idProd}}">
+    <nz-card style="width:230px;" [nzCover]="coverTemplate" [nzTitle]="timeTemplate" [nzActions]="[actionSell, actionLike, actionEdit]" [nzHoverable]="true" id="{{select.idProd}}">
+      <ng-template #timeTemplate>
+        <span style="color: red;font-size: small; font-family: 'Arial Black';">{{ getTimeRemaining(select) }}</span>
+      </ng-template>
       <nz-card-meta nzTitle="{{select.prixProd}}"
                     nzDescription="{{select.designProd}}"
                     [nzAvatar]="avatarTemplate">

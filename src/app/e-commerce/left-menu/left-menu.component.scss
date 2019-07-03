@@ -1,0 +1,9 @@
+/*:host ::ng-deep .ui-lightbox{
+  width:50px;
+  height:60px;
+}*/
+
+:host ::ng-deep .ui-lightbox-content{
+  width: 45px;
+  height: 55px;
+}
