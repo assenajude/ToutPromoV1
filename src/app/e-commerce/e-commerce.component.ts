@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MenuItem} from "primeng/api";
+import {DialogService, MenuItem} from "primeng/api";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {EcommerceService} from "./services/ecommerce.service";
 import {Observable} from "rxjs";
@@ -7,11 +7,13 @@ import {LigneCommandeModel} from "./models/ligneCommande-model";
 import {ShoppingCartService} from "./services/shopping-cart.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {EspaceModel} from "./models/espace-model";
+import {NewProduitComponent} from "./modals/new-produit/new-produit.component";
 
 @Component({
   selector: 'app-e-commerce',
   templateUrl: './e-commerce.component.html',
-  styleUrls: ['./e-commerce.component.scss']
+  styleUrls: ['./e-commerce.component.scss'],
+  providers: [DialogService]
 })
 export class ECommerceComponent implements OnInit {
   submitted=false;
@@ -24,7 +26,8 @@ items:MenuItem[];
   constructor(private fb:FormBuilder, private ecommerceService:EcommerceService,
               private shopcartService:ShoppingCartService,
               private route:ActivatedRoute,
-              private router:Router) {
+              private router:Router,
+              public dialogService:DialogService) {
 
     this.espaceForm = this.fb.group({
       espaceName : '',
@@ -235,7 +238,15 @@ items:MenuItem[];
           [
             {
               label: 'Produit',
-              items: [{label: 'Nouveau'},{label: 'Editer'}]
+              items: [{label: 'Nouveau', command:()=> {
+                    const ref = this.dialogService.open(NewProduitComponent, {
+                      header: 'Nouveau produit',
+                      contentStyle: {"overflow": "auto"}
+                    });
+                }
+
+                },
+                {label: 'Editer'}]
             },
             {
               label: 'Sports 4',

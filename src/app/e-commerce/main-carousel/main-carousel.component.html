@@ -1,1 +1,22 @@
-<p-galleria [images]="items" panelWidth="800" panelHeight="400" [showCaption]="true" frameWidth="80" ></p-galleria>
+
+<nz-carousel [nzAutoPlay]="play"   nzDotPosition="bottom" [nzEffect]="'flip'"
+            [nzAutoPlaySpeed]="3000" nzEnableSwipe="true"  >
+
+
+      <div *ngFor="let item of produits">
+        <div nz-carousel-content >
+
+          <span><img src="{{item.lienImage}}"></span>
+
+
+        </div>
+      </div>
+
+
+</nz-carousel>
+
+<!--
+<ng-template #dotTpl>
+  <div class="dot" style="color: red;"></div>
+</ng-template>
+-->

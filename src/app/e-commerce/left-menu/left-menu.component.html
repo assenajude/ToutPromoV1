@@ -1,31 +1,36 @@
-<div  style="padding-top: 2em"></div>
-<div class="card" style="  margin-right: 0px; width: 250px; padding-left: 0em; padding-right: 1em; padding-bottom: 1em">
-  <div class="card-header bg-primary" style="font-size: 15px; color:white; text-align: center"><i class="fas fa-group"></i>&nbsp;&nbsp;<i nz-icon nzType="gift" nzTheme="twotone"></i>ToutPromo Cadeau</div>
+<div  style="padding-top: 2px"></div>
+<div class="card" style="width:300px; padding-right: 0em; padding-bottom: 1em; margin-left: 3em">
+  <div class="card-header bg-primary" style="font-size: 15px; color:white; text-align: center">&nbsp;&nbsp;<i nz-icon nzType="gift" nzTheme="twotone" style="font-size: 20px"></i>ToutPromo Cadeau</div>
 
   <div class="card" style="margin-right: 0px; margin-top: 10px;margin-left: 10px">
     <div class="card-header" style="background-color: deeppink; color: ivory; font-size: 13px; height: 15px;padding-top: 0px; padding-bottom: 2em; text-align: center">Live Promo</div>
-    <div class="card-body" style="font-size: 14px; text-align: left;">
+    <div class="card-body" style="font-size: 14px; text-align: center;">
      <!-- <ul class="nav" style="padding-left: 0em">
         <li class="nav-item"><a  href="#">Promo individuelle&nbsp;<span class="badge badge-primary badge-pill">2</span></a></li>
         <li class="nav-item"><a  href="#">Mes points promo&nbsp;<span class="badge badge-primary badge-pill">5000</span></a></li>
         <li class="nav-item"><a  href="#">Proposer un produit</a></li>
       </ul>-->
 
-       <p-lightbox [images]="images" easing="ease-out"></p-lightbox>
+
+<p-galleria [images]="items" panelWidth="200" panelHeight="150" [showCaption]="false" frameWidth="60"></p-galleria>
+
+
 
 
     </div>
   </div>
 
   <div class="card" style="margin-left: 10px; margin-top: 15px; text-align: left;">
-    <div class="card-header" style="background-color:deeppink; color:ivory; font-size: 15px;height: 15px;padding-top: 0px; padding-bottom: 2em; text-align: center">Best Promo</div>
+    <div class="card-header" style="background-color:deeppink; color:ivory; font-size: 15px;height: 15px;padding-top: 0px; padding-bottom: 2em; text-align: center">Surprise Promo</div>
+<!--
 
     <ul class="navbar-nav" style="padding-left: 0em;font-size: 14px; padding-top: 1em">
       <li class="nav-item"><a href="#">Report promo &nbsp;<span class="badge badge-primary badge-pill">1</span></a></li>
       <li class="nav-item"><a  href="#">Reserve promo&nbsp;<span class="badge badge-primary badge-pill">1</span></a></li>
       <li class="nav-item"><a  href="#">Negocier le prix &nbsp;<span class="badge badge-primary badge-pill">1</span></a></li>
     </ul>
-
+-->
+  <span>Decouvrez la surprise du jour <blanck><a routerLink="#">ici...</a></blanck></span>
 
   </div>
 </div>

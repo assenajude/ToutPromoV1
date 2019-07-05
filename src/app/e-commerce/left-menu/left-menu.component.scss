@@ -7,3 +7,9 @@
   width: 45px;
   height: 55px;
 }
+
+
+:host ::ng-deep .ui-galleria-filmstrip-wrapper{
+ border-color: blue;
+
+}

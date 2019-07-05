@@ -6,7 +6,10 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {en_US, NgZorroAntdModule, NZ_I18N, NzAvatarModule, NzBadgeModule, NzCarouselModule} from "ng-zorro-antd";
+import {
+  en_US, NgZorroAntdModule, NZ_CAROUSEL_CUSTOM_STRATEGIES, NZ_I18N, NzAvatarModule, NzBadgeModule,
+  NzCarouselModule
+} from "ng-zorro-antd";
 import{NzDropDownModule} from "ng-zorro-antd/dropdown";
 import { ELocationComponent } from './e-location/e-location.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
@@ -37,6 +40,7 @@ import {
 } from "primeng/primeng";
 import { FooterComponent } from './e-commerce/footer/footer.component';
 import {DynamicDialogComponent, DynamicDialogModule} from "primeng/dynamicdialog";
+import {FlipStrategy} from "./flip-strategy";
 
 @NgModule({
   declarations: [
@@ -86,7 +90,16 @@ import {DynamicDialogComponent, DynamicDialogModule} from "primeng/dynamicdialog
     NewProduitComponent
   ],
   providers: [
-    { provide: NZ_I18N, useValue: en_US }
+    { provide: NZ_I18N, useValue: en_US },
+    {
+      provide: NZ_CAROUSEL_CUSTOM_STRATEGIES,
+      useValue: [
+        {
+          name: 'flip',
+          strategy: FlipStrategy,
+        },
+      ],
+    },
   ],
   bootstrap: [AppComponent]
 })

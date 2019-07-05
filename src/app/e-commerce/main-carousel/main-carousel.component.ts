@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Carousel} from "primeng/primeng";
+import {EcommerceService} from "../services/ecommerce.service";
+import {Subscription} from "rxjs";
+import {ProduitModel} from "../models/produit-model";
 
 @Component({
   selector: 'app-main-carousel',
@@ -7,18 +10,26 @@ import {Carousel} from "primeng/primeng";
   styleUrls: ['./main-carousel.component.scss']
 })
 export class MainCarouselComponent implements OnInit {
+  play=true;
  produitImage:Carousel[];
- items:any[];
-  constructor() { }
+  position: 'right';
+  produits:any[];
+  sub:Subscription;
+  array = [1, 2, 3, 4];
+  constructor(private ecommerceService:EcommerceService) {
+
+
+  }
 
   ngOnInit() {
-    this.items=[];
 
-    this.items.push({source:'assets/images/t-shirtp1.jpg', alt:'T-shirt Polo 100% coton', title:'5000 FCFA'});
-    this.items.push({source:'assets/images/damech.jpg', alt:'Talon dame de très haute qualité', title:'10000 FCFA'});
-    this.items.push({source:'assets/images/bag1.jpg', alt:'Sac à dos intelligent', title:'16000 FCFA'});
-    this.items.push({source:'assets/images/basketclass2.jpg', alt:'Basket classe pour homme', title:'18000 FCFA'});
-    this.items.push({source:'assets/images/basketclass1.jpg', alt:'Basket classe pour homme', title:'17000 FCFA'});
+    this.sub=this.ecommerceService.getProduitsByEspace(4,0,10).subscribe(data=>{
+        this.produits=data.content;
+      console.log(this.produits)
+      },
+      error1 => {
+        console.log("Produits introuvable")
+      })
 
   }
 
