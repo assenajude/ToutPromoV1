@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg  bg-dark" style="max-height: 30px;padding-top: 0em;margin-top: 0px; text-align:center; color:blue">
+<!--<nav class="navbar navbar-expand-lg  bg-dark" style="max-height: 30px;padding-top: 0em;margin-top: 0px; text-align:center; color:blue">
     <a href="#" class="navbar-brand" style="padding-bottom: 3em; padding-top: 0em;margin-top: 0px;margin-bottom: 20px; font-size: 13px" tooltip="Envoyer un mail" placement="bottom">
       <i nz-icon nzType="mail" nzTheme="twotone"></i>&nbsp;toutpromo1@gmail.com
     </a>
@@ -15,16 +15,59 @@
       <li  tooltip="Partager sur instagram" placement="bottom"><a href="#" style="margin-left: 10px"><i nz-icon nzType="instagram" nzTheme="outline" style="color: blue"></i></a></li>
     </ul>
 
+</nav>-->
+<nav class="navbar navbar-dark bg-dark" style="max-height: 30px; padding-top: 0em; padding-bottom: 1em">
+  <a class="navbar-brand" href="#">toutpromo@gmail.com</a>
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i nz-icon nzType="phone" nzTheme="twotone"></i>
+        &nbsp;+225 08525827
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i nz-icon nzType="facebook" nzTheme="outline" style="color: blue"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i nz-icon nzType="message" nzTheme="outline" style="color: blue"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i nz-icon nzType="twitter" nzTheme="outline" style="color: blue"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i nz-icon nzType="instagram" nzTheme="outline" style="color: blue"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        Affiliation
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+       FAQ
+      </a>
+    </li>
+  </ul>
 </nav>
+
 <nz-affix>
   <div>
     <nav class="navbar navbar-expand-lg" style="background-color: ivory; height: 60px; text-align:bottom">
-    <a class="navbar-brand" href="#"><img src="../assets/images/toutpromov1.jpg" style="padding-left: 3em"></a>
+    <a class="navbar-brand" href="#"><img src="../assets/images/toutpromologo4.png" style="padding-left: 1em"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02" style="padding-right: 3em" >
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02" style="padding-right: 3em;padding-left: 3em" >
       <span class="spacer1"></span>
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0 push-righ">
         <li class="nav-item">
@@ -72,16 +115,8 @@
         </li>
 
 
-        <li class="nav-item" style="margin-right: 20px;">
-          <a class="nav-link" href="#">
 
-            <i nz-icon [type]="'info-circle'" style="font-size: 25px; color: #eb2f96;"></i>
-
-            Aide?
-          </a>
-        </li>
-
-        <li class="nav-item" style="margin-right: 20px;">
+        <li class="nav-item" style="margin-right: 10px;">
 
             <a class="nav-link" routerLink="#" nz-dropdown [nzDropdownMenu]="menu" style="padding-top: 0.5em">
               <nz-badge [nzCount]="0">
@@ -100,14 +135,83 @@
         <li nz-menu-item ><i nz-icon nzType="gift" nzTheme="twotone"></i>Mes promos</li>
         <li nz-menu-item ><i nz-icon nzType="mail" nzTheme="twotone"></i>Mes messages</li>
         <li nz-menu-item ><i nz-icon nzType="bell" nzTheme="twotone"></i>Notification</li>
+        <li nz-menu-item ><i nz-icon nzType="wallet" nzTheme="outline"></i>Notification</li>
         <li nz-menu-item ><i nz-icon nzType="setting" nzTheme="twotone"></i>Mes parametres</li>
         <li nz-menu-item ><i nz-icon nzType="idcard" nzTheme="twotone"></i>Connect/deconnect</li>
       </ul>
     </nz-dropdown-menu>
   </div>
 
+<!--<p-megaMenu [model]="items" ></p-megaMenu>-->
 
-<p-megaMenu [model]="items" [ngStyle]="{'color':'ivory'}"></p-megaMenu>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+    <a href="#" class="navbar-brand font-weight-bold d-block d-lg-none">MegaMenu</a>
+    <button type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbarContent" class="collapse navbar-collapse">
+      <ul class="navbar-nav mx-auto">
+        <!-- Megamenu-->
+        <li class="nav-item dropdown megamenu"><a id="megamneu" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle font-weight-bold text-uppercase">Mega Menu</a>
+          <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
+            <div class="container">
+              <div class="row bg-white rounded-0 m-0 shadow-sm">
+                <div class="col-lg-7 col-xl-8">
+                  <div class="p-4">
+                    <div class="row">
+                      <div class="col-lg-6 mb-4">
+                        <h6 class="font-weight-bold text-uppercase">MegaMenu heading</h6>
+                        <ul class="list-unstyled">
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0">Unique Features</a></li>
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Image Responsive</a></li>
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Auto Carousel</a></li>
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Newsletter Form</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-6 mb-4">
+                        <h6 class="font-weight-bold text-uppercase">MegaMenu heading</h6>
+                        <ul class="list-unstyled">
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Unique Features</a></li>
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Image Responsive</a></li>
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Auto Carousel</a></li>
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Newsletter Form</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-6 mb-4">
+                        <h6 class="font-weight-bold text-uppercase">MegaMenu heading</h6>
+                        <ul class="list-unstyled">
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Unique Features</a></li>
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Image Responsive</a></li>
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Auto Carousel</a></li>
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Newsletter Form</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-6 mb-4">
+                        <h6 class="font-weight-bold text-uppercase">MegaMenu heading</h6>
+                        <ul class="list-unstyled">
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Unique Features</a></li>
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Image Responsive</a></li>
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Auto Carousel</a></li>
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Newsletter Form</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               <!-- <div class="col-lg-5 col-xl-4 px-0 d-none d-lg-block" style="background: center center url(https://res.cloudinary.com/mhmd/image/upload/v1556990826/mega_bmtcdb.png)no-repeat; background-size: cover;"></div>-->
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">About</a></li>
+        <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">Services</a></li>
+        <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+
 </nz-affix>
 
 <router-outlet></router-outlet>

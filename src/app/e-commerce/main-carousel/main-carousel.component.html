@@ -1,3 +1,4 @@
+<!--
 
 <nz-carousel [nzAutoPlay]="play"   nzDotPosition="bottom" [nzEffect]="'flip'"
             [nzAutoPlaySpeed]="3000" nzEnableSwipe="true"  >
@@ -14,9 +15,23 @@
 
 
 </nz-carousel>
+-->
 
 <!--
 <ng-template #dotTpl>
   <div class="dot" style="color: red;"></div>
 </ng-template>
 -->
+<div style="margin-top:30px;padding-left: 2em">
+
+<owl-carousel-o [options]="customOptions">
+
+    <ng-container *ngFor="let prod of produits">
+      <ng-template carouselSlide  id="{{prod.idProd}}">
+        <img [src]="prod.lienImage" [alt]="prod.descripProd" [title]="prod.designProd" style="height:380px">
+      </ng-template>
+    </ng-container>
+
+</owl-carousel-o>
+
+</div>

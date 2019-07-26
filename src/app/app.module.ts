@@ -31,16 +31,17 @@ import { LeftMenuComponent } from './e-commerce/left-menu/left-menu.component';
 import {PanelModule} from "primeng/panel";
 
 import {
-  CarouselModule,
+  CardModule,
   ChartModule,
   EditorModule,
-  GalleriaModule, LightboxModule,
+  GalleriaModule,
   MegaMenuModule,
   PaginatorModule, TabMenuModule
 } from "primeng/primeng";
 import { FooterComponent } from './e-commerce/footer/footer.component';
 import {DynamicDialogComponent, DynamicDialogModule} from "primeng/dynamicdialog";
 import {FlipStrategy} from "./flip-strategy";
+import {CarouselModule} from "ngx-owl-carousel-o";
 
 @NgModule({
   declarations: [
@@ -77,13 +78,14 @@ import {FlipStrategy} from "./flip-strategy";
     MegaMenuModule,
     ChartModule,
     EditorModule,
-    CarouselModule,
     GalleriaModule,
     NzAvatarModule,
     NzBadgeModule,
     TabMenuModule,
     DynamicDialogModule,
-    NzCarouselModule
+    NzCarouselModule,
+    CarouselModule,
+    CardModule
 
   ],
   entryComponents: [

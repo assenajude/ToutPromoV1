@@ -1,5 +1,5 @@
-<div style="width:auto;" style="margin-left: 1em; width:280px;">
-  <span nz-tooltip nzTitle="ouvrir ou fermer le menu" nzPlacement="right">
+<div  style="margin-top: 30px;padding-right: 2em">
+ <!-- <span nz-tooltip nzTitle="ouvrir ou fermer le menu" nzPlacement="right">
     <button nz-button [nzType]="'primary'" (click)="toggleCollapsed()" style="margin-bottom: 10px;width: 120px">
     <i nz-icon [type]="isCollapsed?'menu-unfold':'menu-fold'"></i>
     Categories
@@ -105,5 +105,28 @@
         <li nz-menu-item>Option 11</li>
       </ul>
     </li>
-  </ul>
+  </ul>-->
+<!--  <nz-card  [nzBordered]="false" nzTitle="La mine d'or" [nzExtra]="extraTemplate">
+    <p>contenu de la mine d'or</p>
+
+  </nz-card>
+</div>
+
+<ng-template #extraTemplate>
+  <a>decouvrir</a>
+</ng-template>-->
+
+
+<p-card header="La mine d'or" subheader="La boîte magique.."  styleClass="ui-card-shadow">
+  <p-header>
+    <p>animation sous forme de lingo d'or ici..</p>
+  </p-header>
+  <div>Avec un coeur sincère et plein d'amour nous vous offrons un panier en or, veillez cliquer sur le bouton ci-dessous pour decouvrir!!!</div>
+  <p-footer>
+    <button class="btn btn-outline-primary btn-sm">Decouvrir</button>
+
+  </p-footer>
+</p-card>
+
+
 </div>

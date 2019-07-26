@@ -1,3 +1,13 @@
+
+.megamenu .dropdown-menu {
+  background: none;
+  border: none;
+  width: 100%;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
 .ui-menu .ui-menuitem .ui-state-hover{
   color : red;
   background: #85b2cb;
@@ -6,11 +16,11 @@
 }
 
 
-
+/*
 :host ::ng-deep .ui-megamenu{
   background-color: #eb2f96;
 
-}
+}*/
 :host ::ng-deep .ui-menuitem-text{
 
   font-family: Arial;
