@@ -17,7 +17,7 @@ export class MainCarouselComponent implements OnInit {
   produits:any[];
   sub:Subscription;
 
-  customOptions: OwlOptions = {
+ /* customOptions: OwlOptions = {
     items:1,
     loop: false,
     autoplay:true,
@@ -54,21 +54,21 @@ export class MainCarouselComponent implements OnInit {
       }
     },
 
-  }
+  }*/
   constructor(private ecommerceService:EcommerceService) {
 
   }
 
 
   ngOnInit() {
-
+/*
     this.sub=this.ecommerceService.getProduitsByEspace(4,0,10).subscribe(data=>{
         this.produits=data.content;
       console.log(this.produits)
       },
       error1 => {
         console.log("Produits introuvable")
-      })
+      })*/
 
   }
 

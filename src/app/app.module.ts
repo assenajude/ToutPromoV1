@@ -36,12 +36,13 @@ import {
   EditorModule,
   GalleriaModule,
   MegaMenuModule,
-  PaginatorModule, TabMenuModule
+  PaginatorModule, ScrollPanelModule, TabMenuModule
 } from "primeng/primeng";
 import { FooterComponent } from './e-commerce/footer/footer.component';
 import {DynamicDialogComponent, DynamicDialogModule} from "primeng/dynamicdialog";
 import {FlipStrategy} from "./flip-strategy";
 import {CarouselModule} from "ngx-owl-carousel-o";
+import { MenuBarComponent } from './e-commerce/menu-bar/menu-bar.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import {CarouselModule} from "ngx-owl-carousel-o";
     NewProduitComponent,
     MainCarouselComponent,
     LeftMenuComponent,
-    FooterComponent
+    FooterComponent,
+    MenuBarComponent
   ],
   imports: [
     BrowserModule,
@@ -85,11 +87,13 @@ import {CarouselModule} from "ngx-owl-carousel-o";
     DynamicDialogModule,
     NzCarouselModule,
     CarouselModule,
-    CardModule
+    CardModule,
+    ScrollPanelModule
 
   ],
   entryComponents: [
-    NewProduitComponent
+    NewProduitComponent,
+    NewEspaceComponent
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

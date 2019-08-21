@@ -60,6 +60,11 @@ export class EcommerceService {
     return this.http.get<EspaceModel[]>(this.espaceHost);
   }
 
+
+  getAllProdByEspace(idEsp:number):Observable<ProduitModel[]>{
+    return this.http.get<ProduitModel[]>(`${this.prodByEspHost}/${idEsp}`);
+  }
+
   getProduitsByEspace(idEsp:number, page:number, size:number){
 
     return this.http.get<any>(`${this.prodByEspHost}/${idEsp}?page=${page}&size=${size}`);

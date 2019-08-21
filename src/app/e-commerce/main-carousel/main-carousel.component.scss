@@ -1,3 +1,32 @@
+img{
+  height: 380px;
+  cursor: pointer;
+}
+
+.carousel .carousel-control-next{
+  visibility: hidden;
+  transition: 1s;
+  color:#fff;
+  width: 30px;
+  height: 60px;
+  top: 50%;
+  transform: translate(0, -50%);
+  background-color: #d31c5c;
+}
+.carousel:hover .carousel-control-next  { visibility: visible; }
+
+.carousel  .carousel-control-prev {
+  visibility: hidden;
+  color:#fff;
+  transition: 1s;
+  width: 30px;
+  height: 60px;
+  top: 50%;
+  transform: translate(0, -50%);
+  background-color: #d31c5c;
+}
+.carousel:hover  .carousel-control-prev { visibility: visible; }
+
 /*
 .ui-galleria-filmstrip-wrapper {
   overflow: hidden;
