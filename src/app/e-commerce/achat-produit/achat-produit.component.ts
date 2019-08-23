@@ -37,7 +37,7 @@ percent=100;
     let results = [];
     results = [];
     while (array.length) {
-      results.push(array.splice(0, size));
+      results.push(array.splice(1, size));
     }
     return results;
   }
