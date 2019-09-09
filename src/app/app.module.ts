@@ -43,6 +43,11 @@ import {DynamicDialogComponent, DynamicDialogModule} from "primeng/dynamicdialog
 import {FlipStrategy} from "./flip-strategy";
 import {CarouselModule} from "ngx-owl-carousel-o";
 import { MenuBarComponent } from './e-commerce/menu-bar/menu-bar.component';
+import { DemarrerComponent } from './demarrer/demarrer.component';
+import { Topnav1Component } from './e-location/topnav1/topnav1.component';
+import { Topnav2Component } from './e-location/topnav2/topnav2.component';
+import { Topnav3Component } from './e-location/topnav3/topnav3.component';
+import { TopnavlogoComponent } from './e-commerce/topnavlogo/topnavlogo.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +70,12 @@ import { MenuBarComponent } from './e-commerce/menu-bar/menu-bar.component';
     MainCarouselComponent,
     LeftMenuComponent,
     FooterComponent,
-    MenuBarComponent
+    MenuBarComponent,
+    DemarrerComponent,
+    Topnav1Component,
+    Topnav2Component,
+    Topnav3Component,
+    TopnavlogoComponent
   ],
   imports: [
     BrowserModule,

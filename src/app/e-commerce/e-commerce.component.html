@@ -44,15 +44,12 @@
 
 <nz-affix>
   <div>
-    <nav class="navbar navbar-expand-lg" style="background-color: ivory; height: 55px; text-align:bottom">
-    <a class="navbar-brand" href="#"><img src="../assets/images/toutpromologo4.png" style="padding-left: 1em"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <nav class="navbar navbar-expand" style="background-color: ivory;height: 45px;">
+    <a class="navbar-brand" href="#"><img src="../assets/images/logo4.png" style="padding-left: 1em;padding-bottom:3em;padding-top:0em"></a>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02" style="padding-right: 2em;padding-left: 3em" >
-      <span class="spacer1"></span>
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 push-righ">
+
+
+      <ul class="nav justify-content-end">
         <li class="nav-item">
           <div class="input-group">
             <div class="input-group-prepend">
@@ -110,7 +107,7 @@
             </a>
         </li>
       </ul>
-    </div>
+
     </nav>
     <nz-dropdown-menu #menu="nzDropdownMenu">
       <ul nz-menu>
@@ -124,10 +121,10 @@
       </ul>
     </nz-dropdown-menu>
   </div>
-</nz-affix>
+
 <!--<p-megaMenu [model]="items" ></p-megaMenu>-->
 <app-menu-bar></app-menu-bar>
-
+</nz-affix>
 
 
 <router-outlet></router-outlet>
