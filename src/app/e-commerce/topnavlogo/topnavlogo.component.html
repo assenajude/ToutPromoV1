@@ -1,0 +1,72 @@
+
+<nav class="navbar navbar-expand-lg navbar-light" style="height: 50px">
+  <a class="navbar-brand" href="#"><img src="../assets/images/logoelocation.png" style="padding-left: 1em;padding-bottom:3em;padding-top:0em"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topnavlogo" aria-controls="topnavlogo" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="topnavlogo">
+    <ul class="navbar-nav mr-auto" >
+        <li class="nav-item">
+          <button routerLink="#" class="btn btn-outline-warning btn-sm " style="color: ivory; font-size: 15px; font-weight: bold; margin-right: 0%;margin-top: 1em; margin-bottom: 1em; margin-left: 50px ">Placer un ordre de location</button>
+        </li>
+
+        <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0" style="margin-right: 30px; margin-left: 20px">
+
+            <div class="input-group">
+              <input type="text" class="form-control" id="chercher" placeholder="Chercher ici..." style="max-height: 35px; width:350px">
+              <div class="input-group-prepend" style="max-height: 35px;">
+                <div class="input-group-text" style="cursor: pointer"><i class="pi pi-search"></i></div>
+              </div>
+
+            </div>
+
+          </form>
+        </li>
+        <li class="nav-item" style="margin-right: 20px;">
+          <a class="nav-link" href="#">
+            <nz-badge [nzCount]="0">
+              <i nz-icon [type]="'heart'" style="font-size: 25px; color: #d31c5c;"></i>
+            </nz-badge>
+            Favoris
+          </a>
+        </li>
+        <li class="nav-item" style="margin-right: 20px;">
+          <a class="nav-link" routerLink="/ecommerce/panier">
+            <nz-badge [nzCount]="nbItem">
+              <i nz-icon [type]="'home'" style="font-size: 25px; color: #d31c5c;"></i>
+            </nz-badge>
+            Reserve
+          </a>
+
+        </li>
+
+
+
+        <li class="nav-item" style="margin-right: 5px;">
+
+          <a class="nav-link" routerLink="#" nz-dropdown [nzDropdownMenu]="menu" style="padding-top: 0.5em">
+            <nz-badge [nzCount]="0">
+              <i nz-icon [type]="'user'" style="font-size: 25px; color: #d31c5c;"></i>
+            </nz-badge>
+            Compte
+            <i nz-icon nzType="down"></i>
+          </a>
+        </li>
+
+    </ul>
+  </div>
+
+</nav>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu>
+    <li nz-menu-item ><i nz-icon nzType="dashboard" nzTheme="twotone"></i>Tableau de bord</li>
+    <li nz-menu-item ><i nz-icon nzType="gift" nzTheme="twotone"></i>Mes promos</li>
+    <li nz-menu-item ><i nz-icon nzType="mail" nzTheme="twotone"></i>Mes messages</li>
+    <li nz-menu-item ><i nz-icon nzType="bell" nzTheme="twotone"></i>Notification</li>
+    <li nz-menu-item ><i nz-icon nzType="wallet" nzTheme="outline"></i>Notification</li>
+    <li nz-menu-item ><i nz-icon nzType="setting" nzTheme="twotone"></i>Mes parametres</li>
+    <li nz-menu-item ><i nz-icon nzType="idcard" nzTheme="twotone"></i>Connect/deconnect</li>
+  </ul>
+</nz-dropdown-menu>
